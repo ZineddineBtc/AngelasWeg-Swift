@@ -9,15 +9,19 @@ import UIKit
 
 class ResultViewController: UIViewController {
 
-    var bmi: String
+    var bmi: String?
+    @IBOutlet weak var bmiLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        bmiLabel.text = bmi
     }
     
-
+    @IBAction func recalculateBMI(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

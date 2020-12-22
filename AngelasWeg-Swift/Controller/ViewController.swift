@@ -17,24 +17,32 @@ class ViewController: UIViewController {
     @IBOutlet weak var wghtSlider: UISlider!
     @IBOutlet weak var hghtSlider: UISlider!
     @IBAction func heightSliderChanged(_ sender: UISlider) {
-        hghtLabel.text = String(format:".%2f", sender.value) + " m"
+        hghtLabel.text = String(format:"%.2f", sender.value) + " m"
     }
     
     @IBAction func weightSliderChanged(_ sender: UISlider) {
-        wghtLabel.text = String(format:".%0f", sender.value) + " kg"
+        wghtLabel.text = String(format:"%.0f", sender.value) + " kg"
     }
     
+    var bmi = BMI(height: 0, weight: 0)
+    
     @IBAction func calculateBMI(_ sender: UIButton) {
-        let bmi = wghtSlider.value / pow(hghtSlider.value, 2)
-        let resultViewController = ResultViewController()
-        resultViewController.bmi = String(bmi)
-        self.present(secondViewController, animated: true, completion: nil)
+        bmi.height = hghtSlider.value
+        bmi.weight = wghtSlider.value
+        self.performSegue(withIdentifier: "goToResult", sender: self)
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToResult" {
+            let destinationVC = segue.destination as! ResultViewController
+            destinationVC.bmi = bmi.getStringBMI()
+        }
+    }
 
 }
 
