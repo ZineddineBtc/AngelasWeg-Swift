@@ -7,42 +7,47 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     
-    @IBOutlet weak var hghtLabel: UILabel!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var searchTF: UITextField!
     
-    @IBOutlet weak var wghtLabel: UILabel!
     
-    @IBOutlet weak var wghtSlider: UISlider!
-    @IBOutlet weak var hghtSlider: UISlider!
-    @IBAction func heightSliderChanged(_ sender: UISlider) {
-        hghtLabel.text = String(format:"%.2f", sender.value) + " m"
-    }
-    
-    @IBAction func weightSliderChanged(_ sender: UISlider) {
-        wghtLabel.text = String(format:"%.0f", sender.value) + " kg"
-    }
-    
-    var bmi = BMI(height: 0, weight: 0)
-    
-    @IBAction func calculateBMI(_ sender: UIButton) {
-        bmi.height = hghtSlider.value
-        bmi.weight = wghtSlider.value
-        self.performSegue(withIdentifier: "goToResult", sender: self)
-        
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        searchTF.delegate = self
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToResult" {
-            let destinationVC = segue.destination as! ResultViewController
-            destinationVC.bmi = bmi.getStringBMI()
+    @IBAction func getWeather(_ sender: UIButton) {
+        searchTF.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if textField.text != "" {
+            return true
+        }else{
+            searchTF.placeholder = "Type something"
+            return false
         }
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.text = ""
+    }
+
+
+
 
 }
+
+
+
+
 
