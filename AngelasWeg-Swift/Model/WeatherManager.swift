@@ -12,6 +12,7 @@ struct WeatherManager{
     
     func fetchWeather(cityName: String){
         let urlString = "\(weatherURL)&q=\(cityName)"
+        performRequest(urlString: urlString)
     }
     
     func performRequest(urlString: String){
@@ -28,9 +29,16 @@ struct WeatherManager{
             return
         }
         if let safeData = data {
-            let dataString = String(data: safeData, encoding: .utf8)
-            
+            parseJSON(weatherData: safeData)
         }
     }
-
+    func parseJSON(weatherData: Data){
+        let decoder = JSONDecoder()
+        do {
+            let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
+            print(decodedData.main.temp)
+        }catch{
+            print(error)
+        }
+    }
 }

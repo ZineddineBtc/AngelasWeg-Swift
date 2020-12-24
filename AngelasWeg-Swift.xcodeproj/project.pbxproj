@@ -16,6 +16,7 @@
 		7655E582258F8B3E00BB2945 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7655E580258F8B3E00BB2945 /* LaunchScreen.storyboard */; };
 		7655E58D258F8B3F00BB2945 /* AngelasWeg_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7655E58C258F8B3F00BB2945 /* AngelasWeg_SwiftTests.swift */; };
 		7655E598258F8B3F00BB2945 /* AngelasWeg_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7655E597258F8B3F00BB2945 /* AngelasWeg_SwiftUITests.swift */; };
+		76ABE84C2594D75D00B6D999 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76ABE84B2594D75D00B6D999 /* WeatherData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		7655E593258F8B3F00BB2945 /* AngelasWeg-SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AngelasWeg-SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7655E597258F8B3F00BB2945 /* AngelasWeg_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngelasWeg_SwiftUITests.swift; sourceTree = "<group>"; };
 		7655E599258F8B3F00BB2945 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76ABE84B2594D75D00B6D999 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				764577842593DB8F00048281 /* WeatherManager.swift */,
+				76ABE84B2594D75D00B6D999 /* WeatherData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7655E57A258F8B3A00BB2945 /* ViewController.swift in Sources */,
+				76ABE84C2594D75D00B6D999 /* WeatherData.swift in Sources */,
 				7655E576258F8B3A00BB2945 /* AppDelegate.swift in Sources */,
 				764577852593DB8F00048281 /* WeatherManager.swift in Sources */,
 				7655E578258F8B3A00BB2945 /* SceneDelegate.swift in Sources */,
